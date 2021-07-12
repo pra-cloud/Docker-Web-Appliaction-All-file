@@ -182,7 +182,7 @@ var mount = document.getElementById("mount").value;
 var image = document.getElementById("image").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/container1.py?"+"vol="+vol+"&name="+name+"&port="+port+"&defaultport="+defaultport+"&networkname="+networkname+"&version="+version+"&mount="+mount+"&image="+image, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/container1.py?"+"vol="+vol+"&name="+name+"&port="+port+"&defaultport="+defaultport+"&networkname="+networkname+"&version="+version+"&mount="+mount+"&image="+image, true);
 xhr.send();
 
         xhr.onload = function out(){
