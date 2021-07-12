@@ -1,0 +1,45 @@
+<html>
+        <body>
+        <h1> Web Linux APP </h1>
+
+<br />
+Enter your command: <input id="i1">
+
+Enter your command: <input id="ip">
+
+</form>
+
+<script>
+
+function backend() {
+var i = document.getElementById("i1").value;
+var k = document.getElementById("ip").value;
+
+var xhr = new XMLHttpRequest();
+//        xhr.open("GET", "http://3.95.177.204/cgi-bin/web.py?"+"x="+i+"&y="+k, true);
+      xhr.open("GET", "http://3.95.177.204/cgi-bin/web1.py?x="+i, true);
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+
+</script>
+
+
+<pre>
+<div id="d1">Output</div>
+</pre>
+
+
+
+<h2>Enter Docker Command</h2>
+
+<button onclick="backend()">CLick Here</button>
+
+        </body>
+</html>
+

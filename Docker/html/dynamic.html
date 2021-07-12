@@ -1,0 +1,365 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Command Editor</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styling1.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+
+      <style>
+
+       h1{
+ color:white;
+           text-align: center;
+ }
+ h3{
+ color:#42d5ce;
+ }
+ .containingDiv{
+ border:1px solid #7c73f6;
+ margin-top: 100px;
+ border-radius: 15px;
+     color: white;
+ }
+
+
+.btn:hover{     background-color:greenyellow; }
+
+.form-control{
+              height:500px;
+          }
+.box{
+
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+
+          }
+
+.buttons {background-color:slateblue; color:white; 
+    border-radius:8px; 
+    height:40px; 
+    width:250px;
+    font-size:20px;
+     font-family:fantasy;
+    margin-top: 55px;
+    
+          }
+
+.buttons2 {background-color:slateblue; color:white; 
+    border-radius:8px; 
+    height:40px; 
+    width:250px;
+    font-size:20px;
+     font-family:fantasy;
+    margin-top: 10px;
+    
+          }
+#d1 { 
+    
+    height: 300px;
+    width:  300px;
+          }
+.box{
+    
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+     margin-top: 55px
+     
+          }
+.box2{
+    
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+     margin-top: 30px
+     
+          }
+          
+.box3{
+    
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+     margin-top: 70px
+     
+          }
+.box4{
+    
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+     margin-top: 10px
+     
+          }
+.box5{
+    
+     padding: 5px;
+     border-radius: 8px;
+     color: black;
+     font-style: bold;
+     margin-top: 100px
+     
+          }
+</style>
+
+  </head>
+  <body>
+      <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="logo1.png" class="logo"></a>                   <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse">                     <span class="sr-only">Toggle navigation</span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                   </button>               </div>               <div class="navbar-collapse collapse" id="navbarCollapse">                   <ul class="nav navbar-nav">                       <li><a href="docker.html">Home</a></li>                       <li><a href="#">About</a></li>
+    <li><a href="#">Portfolio</a></li>
+            <li><a href="index.php">Contact</a></li>                   </ul>               </div>           </div>       </nav>
+
+      <!--Create navigation bar with scrollspy-->
+      <h1>Launch Container By Docker</h1>
+      <!-- home section -->
+      <div class="container-fluid">
+ <div class="row">
+ <div class=" col-sm-offset-2 col-sm-2 col-lg-8
+containingDiv">
+
+
+
+ <div class="col-md-5">
+
+
+<input type="text" id="delete" 
+placeholder="container name" 
+ maxlength="20" size="35" class="box">
+     
+     
+<button class="buttons2" onclick="del()">Delete Container</button>
+    
+     
+<input type="text" id="pull" 
+placeholder="image name" 
+ maxlength="20" size="35" class="box2">
+     
+<button class="buttons2" onclick="pull()">Pull Image</button>
+     
+<input type="text" id="remove" 
+placeholder="image name" 
+ maxlength="20" size="35" class="box2">
+     
+<button class="buttons2" onclick="remove()">Remove Image</button>
+     
+     
+<input type="text" id="log" 
+placeholder="container name" 
+ maxlength="20" size="35" class="box3">
+    
+<button class="buttons2" onclick="log()">Logs Of Container</button>
+     
+<input type="text" id="stop" 
+placeholder="container name" 
+ maxlength="20" size="35" class="box2">
+     
+<button class="buttons2" onclick="stop()">Stop Container </button>
+     
+<input type="text" id="start" 
+placeholder="container name" 
+ maxlength="20" size="35" class="box2">
+    
+<button class="buttons2" onclick="start()">Start Containers </button>
+     
+
+     
+
+     
+
+    
+    </div>
+
+<div class="col-md-7">
+ <div class="form-group">
+<h3 style="text-align:center; color:white; font-weight:bold">Output Terminal </h3>
+<pre>
+<div id="d1">
+<textarea  style="background-color:white; color:black; font-size:15px; font-weight:bold;" class="form-control" name="x" rows="7" cols="120">Output</textarea>
+</div>
+</pre>
+
+<input type="text" id="oname" 
+placeholder="old container name" 
+ maxlength="20" size="35" class="box2">
+
+<input type="text" id="nname" 
+placeholder="new container name" 
+ maxlength="20" size="35" class="box4">
+     
+<button class="buttons2" onclick="rename()"> Rename Container</button>
+     
+<input type="text" id="inspect" 
+placeholder="container name" 
+ maxlength="20" size="35" class="box5">
+    
+<button class="buttons2" onclick="inspect()">Inspect Containers </button>
+     
+
+
+
+ </div>
+    </div>
+
+
+
+
+      </div>
+          </div>
+      </div>
+      <!--Add a footer for our website-->
+       <div class="footer">           <div class="container">               <p>&copy; Develop with Prateek.</p>           </div>       </div>            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>     <!-- Include all compiled plugins (below), or include individual files as needed -->     <script src="js/bootstrap.min.js"></script>
+
+    <!--ADD A javascript code for retrieve information from cgi bin server to html page -->
+
+<script>
+
+function del(){
+var i = document.getElementById("delete").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/deletecontainer.py?x="+i, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function pull(){
+var j = document.getElementById("pull").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/pullimage.py?x="+j, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function inspect(){
+var k = document.getElementById("inspect").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/inspect.py?name="+k, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function remove(){
+var l = document.getElementById("remove").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/removeimage.py?x="+l, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function stop(){
+var m = document.getElementById("stop").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/stopcontainer.py?x="+m, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function start(){
+var n = document.getElementById("start").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/startcontainer.py?x="+n, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+function log(){
+var o = document.getElementById("log").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/logsofcontainer.py?name="+o, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+
+function rename(){
+var p = document.getElementById("oname").value;
+var q = document.getElementById("nname").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/renamecontainer.py?"+"x="+p+"&y="+q, true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+    
+
+</script>
+
+
+
+
+
+
+
+
+    </body>
+</html>
+

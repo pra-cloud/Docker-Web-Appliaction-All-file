@@ -1,0 +1,128 @@
+
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Command Editor</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styling1.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+      
+      <style>
+      
+       h1{
+ color:white;
+           text-align: center;
+ }
+ h3{
+ color:#42d5ce;
+ }
+ .containingDiv{
+ border:1px solid #7c73f6;
+ margin-top: 100px;
+ border-radius: 15px;
+     color: white;
+ }
+      
+
+.btn:hover{     background-color:greenyellow; } 
+          
+.form-control{
+              height:500px;
+          }          
+
+#d1{
+    font-style: bold;
+    font-size: 18px;
+              
+          }
+</style>
+
+  </head>
+  <body>
+      <nav role="navigation" class="navbar navbar-inverse">        
+        <div class="container-fluid">               
+            <div class="navbar-header">                  
+                <a class="navbar-brand" href="#"><img src="logo1.png" class="logo"></a>                   <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse">                     <span class="sr-only">Toggle navigation</span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                   </button>               </div>               <div class="navbar-collapse collapse" id="navbarCollapse">                   <ul class="nav navbar-nav">                       <li><a href="docker.html">Home</a></li>                       <li><a href="#">About</a></li> 
+    <li><a href="#">Portfolio</a></li>                      
+            <li><a href="index.php">Contact</a></li>                   </ul>               </div>           </div>       </nav> 
+      
+      <!--Create navigation bar with scrollspy-->
+      <h1>Command Shell For Docker</h1>
+      <!-- home section -->
+      <div class="container-fluid">
+ <div class="row">
+ <div class=" col-sm-offset-2 col-sm-2 col-lg-8
+containingDiv">
+     
+
+ 
+ <div class="col-md-5">
+ <div class="form-group">
+<h3 style="text-align:center; color:white; font-weight:bold"> Type Docker Command </h3>
+<textarea id="texter" style="background-color:black; color:white; font-size:16px; font-weight:bold;" class="form-control" name="x" rows="10" cols="90"> </textarea>
+ </div>
+    
+                
+
+                
+ 
+<button style="background-color:slateblue; color:white; border-radius:5px; height:30px; width:100px" onclick="backend()">CLick Here</button>     
+    </div>
+    
+<div class="col-md-7">
+ <div class="form-group">
+<h3 style="text-align:center; color:white; font-weight:bold">Output Terminal </h3>
+<pre>
+<div id="d1">
+<textarea  style="background-color:white; color:black; font-size:15px; font-weight:bold;" class="form-control" name="x" rows="7" cols="90">Output</textarea>
+</div>
+</pre>
+
+     
+ </div>
+    </div>
+
+
+ 
+     
+      </div>
+          </div>
+      </div>
+      <!--Add a footer for our website-->
+       <div class="footer">           <div class="container">               <p>&copy; Develop with Prateek.</p>           </div>       </div>            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>     <!-- Include all compiled plugins (below), or include individual files as needed -->     <script src="js/bootstrap.min.js"></script> 
+    
+    <!--ADD A javascript code for retrieve information from cgi bin server to html page -->
+
+<script>
+
+function backend() {
+var i = document.getElementById("texter").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://3.93.73.30/cgi-bin/web.py?x="+i, true);
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+
+</script>
+
+
+       
+
+
+    
+    </body>
+</html>
+      
