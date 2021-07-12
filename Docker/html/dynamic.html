@@ -233,7 +233,7 @@ function del(){
 var i = document.getElementById("delete").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/deletecontainer.py?x="+i, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/deletecontainer.py?x="+i, true);
 
 xhr.send();
 
@@ -263,7 +263,7 @@ function inspect(){
 var k = document.getElementById("inspect").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/inspect.py?name="+k, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/inspect.py?name="+k, true);
 
 xhr.send();
 
@@ -278,7 +278,7 @@ function remove(){
 var l = document.getElementById("remove").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/removeimage.py?x="+l, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/removeimage.py?x="+l, true);
 
 xhr.send();
 
@@ -293,7 +293,7 @@ function stop(){
 var m = document.getElementById("stop").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/stopcontainer.py?x="+m, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/stopcontainer.py?x="+m, true);
 
 xhr.send();
 
@@ -308,7 +308,7 @@ function start(){
 var n = document.getElementById("start").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/startcontainer.py?x="+n, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/startcontainer.py?x="+n, true);
 
 xhr.send();
 
@@ -323,7 +323,7 @@ function log(){
 var o = document.getElementById("log").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/logsofcontainer.py?name="+o, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/logsofcontainer.py?name="+o, true);
 
 xhr.send();
 
@@ -339,7 +339,7 @@ var p = document.getElementById("oname").value;
 var q = document.getElementById("nname").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/dynamic/renamecontainer.py?"+"x="+p+"&y="+q, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/renamecontainer.py?"+"x="+p+"&y="+q, true);
 
 xhr.send();
 
