@@ -106,7 +106,7 @@ function backend() {
 var i = document.getElementById("texter").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://3.93.73.30/cgi-bin/web.py?x="+i, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/web.py?x="+i, true);
 xhr.send();
 
         xhr.onload = function out(){
