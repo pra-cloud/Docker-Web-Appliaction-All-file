@@ -145,9 +145,19 @@ echo -e "Please Enter Public Ip Of Your EC2-Instance."
 read PublicIp
 
 sed -i "s@PublicIp@$PublicIp@" /var/www/html/command.html 
+#if you have domain then uncomment this line 
+sed -i "s@http@$@"https@g" /var/www/html/command.html
+sed -i "s@httpss@$@"https@g" /var/www/html/command.html
+
 sed -i "s@PublicIp@$PublicIp@" /var/www/html/container.html
+sed -i "s@http@$@"https@g" /var/www/html/container.html
+sed -i "s@httpss@$@"https@g" /var/www/html/container.html
 sed -i "s@PublicIp@$PublicIp@" /var/www/html/static.html
+sed -i "s@http@$@"https@g" /var/www/html/static.html
+sed -i "s@httpss@$@"https@g" /var/www/html/static.html
 sed -i "s@PublicIp@$PublicIp@" /var/www/html/dynamic.html
+sed -i "s@http@$@"https@g" /var/www/html/dynamic.html
+sed -i "s@httpss@$@"https@g" /var/www/html/dynamic.html
 
 echo -e "Congatulations !!"
 
