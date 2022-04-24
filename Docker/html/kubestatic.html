@@ -60,59 +60,13 @@
     width:250px;
     font-size:20px;
      font-family:fantasy;
-    margin-top: 10px;
+    margin-top: 20px;
     
           }
 #d1 { 
     
     height: 300px;
     width:  300px;
-          }
-.box{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     margin-top: 55px
-     
-          }
-.box2{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     margin-top: 30px
-     
-          }
-          
-.box3{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     margin-top: 70px
-     
-          }
-.box4{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     margin-top: 10px
-     
-          }
-.box5{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     margin-top: 100px
-     
           }
 </style>
 
@@ -138,51 +92,14 @@ containingDiv">
  <div class="col-md-5">
 
 
-<input type="text" id="delete" 
-placeholder="container name" 
- maxlength="20" size="35" class="box">
-     
-     
-<button class="buttons2" onclick="del()">Delete Container</button>
+<button class="buttons" onclick="Dallpods()">Delete All Pods</button>
+   
+<button class="buttons2" onclick="version()">kubernetes Version</button>
     
+<button class="buttons2" onclick="Rpods()"> ALL Running Pods</button>
      
-<input type="text" id="pull" 
-placeholder="image name" 
- maxlength="20" size="35" class="box2">
+<button class="buttons2" onclick="Deployment()"> All Running Deployments</button>
      
-<button class="buttons2" onclick="pull()">Pull Image</button>
-     
-<input type="text" id="remove" 
-placeholder="image name" 
- maxlength="20" size="35" class="box2">
-     
-<button class="buttons2" onclick="remove()">Remove Image</button>
-     
-     
-<input type="text" id="log" 
-placeholder="container name" 
- maxlength="20" size="35" class="box3">
-    
-<button class="buttons2" onclick="log()">Logs Of Container</button>
-     
-<input type="text" id="stop" 
-placeholder="container name" 
- maxlength="20" size="35" class="box2">
-     
-<button class="buttons2" onclick="stop()">Stop Container </button>
-     
-<input type="text" id="start" 
-placeholder="container name" 
- maxlength="20" size="35" class="box2">
-    
-<button class="buttons2" onclick="start()">Start Containers </button>
-     
-
-     
-
-     
-
-    
     </div>
 
 <div class="col-md-7">
@@ -193,23 +110,6 @@ placeholder="container name"
 <textarea  style="background-color:white; color:black; font-size:15px; font-weight:bold;" class="form-control" name="x" rows="7" cols="120">Output</textarea>
 </div>
 </pre>
-
-<input type="text" id="oname" 
-placeholder="old container name" 
- maxlength="20" size="35" class="box2">
-
-<input type="text" id="nname" 
-placeholder="new container name" 
- maxlength="20" size="35" class="box4">
-     
-<button class="buttons2" onclick="rename()"> Rename Container</button>
-     
-<input type="text" id="inspect" 
-placeholder="container name" 
- maxlength="20" size="35" class="box5">
-    
-<button class="buttons2" onclick="inspect()">Inspect Containers </button>
-     
 
 
 
@@ -229,11 +129,57 @@ placeholder="container name"
 
 <script>
 
-function del(){
-var i = document.getElementById("delete").value;
+function Dallpods(){
+//var vol = document.getElementById("vol").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/deletecontainer.py?x="+i, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/deleteallpods.py", true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+
+function Deployment(){
+//var vol = document.getElementById("vol").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://PublicIp/cgi-bin/kubedeployment.py", true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+
+
+function version(){
+//var vol = document.getElementById("vol").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://PublicIp/cgi-bin/version.py", true);
+
+xhr.send();
+
+        xhr.onload = function out(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+        }
+
+}
+        
+function Rpods(){
+//var vol = document.getElementById("vol").value;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://PublicIp/cgi-bin/runpods.py", true);
 
 xhr.send();
 
@@ -244,111 +190,8 @@ xhr.send();
 
 }
     
-function pull(){
-var j = document.getElementById("pull").value;
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/pullimage.py?x="+j, true);
 
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-    
-function inspect(){
-var k = document.getElementById("inspect").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/inspect.py?name="+k, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-    
-function remove(){
-var l = document.getElementById("remove").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/removeimage.py?x="+l, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-    
-function stop(){
-var m = document.getElementById("stop").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/stopcontainer.py?x="+m, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-    
-function start(){
-var n = document.getElementById("start").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/startcontainer.py?x="+n, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-    
-function log(){
-var o = document.getElementById("log").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/logsofcontainer.py?name="+o, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
-
-function rename(){
-var p = document.getElementById("oname").value;
-var q = document.getElementById("nname").value;
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/dynamic/renamecontainer.py?"+"x="+p+"&y="+q, true);
-
-xhr.send();
-
-        xhr.onload = function out(){
-                var output = xhr.responseText;
-                document.getElementById("d1").innerHTML = output;
-        }
-
-}
     
 
 </script>

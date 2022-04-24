@@ -57,7 +57,7 @@
             <li><a href="index.php">Contact</a></li>                   </ul>               </div>           </div>       </nav> 
       
       <!--Create navigation bar with scrollspy-->
-      <h1>Launch Container  By Docker</h1>
+      <h1>Launch Pods By Web App</h1>
       <!-- home section -->
       <div class="container-fluid">
  <div class="row">
@@ -70,74 +70,20 @@ containingDiv">
      
 <div class="form-group">
  <label
-for="firstname">Enter Volume Name:</label>
-    <br>
- <input type="text" id="vol"
-placeholder="volume name" 
- maxlength="20" size="35" class="box">
-     </div>
-
-
-<div class="form-group">     
-<label
-for="lastname">Docker Image Name:</label>
-    <br>
- <input type="text" id="image"
-placeholder="image-name" size="35" class="box"
- maxlength="20">
-     </div>
-     
-<div class="form-group">
-<label
-for="lastname">Docker Image Version:</label>
-    <br>
- <input type="text" id="version"
-placeholder="os.name"size="35" class="box"
- maxlength="20">
-     </div>
- 
-
-<div class="form-group">
- <label
-for="lastname">Container Name:</label>
+for="lastname">Deployment Name:</label>
     <br>
  <input type="text" id="name"
 placeholder="os.name"  size="35" class="box"
  maxlength="20">
     </div>
 
-<div class="form-group">
-<label
-for="lastname">Port Number:</label>
-<br>
- <input type="text" id="port"
-placeholder="port-name" size="35" class="box"
- maxlength="20">
-    </div>
-     
-<div class="form-group">
-<label
-for="lastname">Default Port Number:</label>
-<br>
- <input type="text" id="defaultport"
-placeholder="port-name" size="35" class="box"
- maxlength="20">
-    </div>
 
-<div class="form-group">
-<label
-for="lastname">Network Name:</label>
-    <br>
- <input type="text" id="networkname"
-placeholder="network name" size="35" class="box"
- maxlength="20">
-    </div>
     
 <div class="form-group">
 <label
-for="lastname">Mount:</label>
+for="lastname">Image Version:</label>
     <br>
- <input type="text" id="mount"
+ <input type="text" id="image"
 placeholder="mount directory" size="35" class="box"
  maxlength="20">
     
@@ -172,17 +118,11 @@ placeholder="mount directory" size="35" class="box"
 <script>
 
 function backend(){
-var vol = document.getElementById("vol").value;
 var name = document.getElementById("name").value;
-var port = document.getElementById("port").value;
-var defaultport = document.getElementById("defaultport").value;
-var networkname = document.getElementById("networkname").value;
-var version = document.getElementById("version").value;
-var mount = document.getElementById("mount").value;
 var image = document.getElementById("image").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/container1.py?"+"vol="+vol+"&name="+name+"&port="+port+"&defaultport="+defaultport+"&networkname="+networkname+"&version="+version+"&mount="+mount+"&image="+image, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/Kubecontainer.py?"+"name="+name+"&image="+image, true);
 xhr.send();
 
         xhr.onload = function out(){

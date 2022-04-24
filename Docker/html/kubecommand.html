@@ -35,16 +35,13 @@
           
 .form-control{
               height:500px;
-          } 
-.box{
-    
-     padding: 5px;
-     border-radius: 8px;
-     color: black;
-     font-style: bold;
-     
+          }          
+
+#d1{
+    font-style: bold;
+    font-size: 18px;
+              
           }
-            
 </style>
 
   </head>
@@ -57,7 +54,7 @@
             <li><a href="index.php">Contact</a></li>                   </ul>               </div>           </div>       </nav> 
       
       <!--Create navigation bar with scrollspy-->
-      <h1>Launch Container  By Docker</h1>
+      <h1>Kube Shell For Docker</h1>
       <!-- home section -->
       <div class="container-fluid">
  <div class="row">
@@ -67,83 +64,16 @@ containingDiv">
 
  
  <div class="col-md-5">
-     
-<div class="form-group">
- <label
-for="firstname">Enter Volume Name:</label>
-    <br>
- <input type="text" id="vol"
-placeholder="volume name" 
- maxlength="20" size="35" class="box">
-     </div>
-
-
-<div class="form-group">     
-<label
-for="lastname">Docker Image Name:</label>
-    <br>
- <input type="text" id="image"
-placeholder="image-name" size="35" class="box"
- maxlength="20">
-     </div>
-     
-<div class="form-group">
-<label
-for="lastname">Docker Image Version:</label>
-    <br>
- <input type="text" id="version"
-placeholder="os.name"size="35" class="box"
- maxlength="20">
-     </div>
- 
-
-<div class="form-group">
- <label
-for="lastname">Container Name:</label>
-    <br>
- <input type="text" id="name"
-placeholder="os.name"  size="35" class="box"
- maxlength="20">
-    </div>
-
-<div class="form-group">
-<label
-for="lastname">Port Number:</label>
-<br>
- <input type="text" id="port"
-placeholder="port-name" size="35" class="box"
- maxlength="20">
-    </div>
-     
-<div class="form-group">
-<label
-for="lastname">Default Port Number:</label>
-<br>
- <input type="text" id="defaultport"
-placeholder="port-name" size="35" class="box"
- maxlength="20">
-    </div>
-
-<div class="form-group">
-<label
-for="lastname">Network Name:</label>
-    <br>
- <input type="text" id="networkname"
-placeholder="network name" size="35" class="box"
- maxlength="20">
-    </div>
+ <div class="form-group">
+<h3 style="text-align:center; color:white; font-weight:bold"> Type kubernetes Command </h3>
+<textarea id="texter" style="background-color:black; color:white; font-size:16px; font-weight:bold;" class="form-control" name="x" rows="10" cols="90"> </textarea>
+ </div>
     
-<div class="form-group">
-<label
-for="lastname">Mount:</label>
-    <br>
- <input type="text" id="mount"
-placeholder="mount directory" size="35" class="box"
- maxlength="20">
-    
-    </div>
+                
+
+                
  
-<button style="background-color:slateblue; color:white; border-radius:8px; height:30px; width:100px" onclick="backend()">CLick Here</button>     
+<button style="background-color:slateblue; color:white; border-radius:5px; height:30px; width:100px" onclick="backend()">CLick Here</button>     
     </div>
     
 <div class="col-md-7">
@@ -160,6 +90,7 @@ placeholder="mount directory" size="35" class="box"
     </div>
 
 
+ 
      
       </div>
           </div>
@@ -171,18 +102,11 @@ placeholder="mount directory" size="35" class="box"
 
 <script>
 
-function backend(){
-var vol = document.getElementById("vol").value;
-var name = document.getElementById("name").value;
-var port = document.getElementById("port").value;
-var defaultport = document.getElementById("defaultport").value;
-var networkname = document.getElementById("networkname").value;
-var version = document.getElementById("version").value;
-var mount = document.getElementById("mount").value;
-var image = document.getElementById("image").value;
+function backend() {
+var i = document.getElementById("texter").value;
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://PublicIp/cgi-bin/container1.py?"+"vol="+vol+"&name="+name+"&port="+port+"&defaultport="+defaultport+"&networkname="+networkname+"&version="+version+"&mount="+mount+"&image="+image, true);
+xhr.open("GET", "http://PublicIp/cgi-bin/web.py?x="+i, true);
 xhr.send();
 
         xhr.onload = function out(){
