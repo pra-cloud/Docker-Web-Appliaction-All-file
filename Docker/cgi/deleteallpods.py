@@ -7,9 +7,9 @@ print("content-type: text/html")
 print()
 
 mydata = cgi.FieldStorage()
-x = mydata.getvalue("x")
+#deleteos = mydata.getvalue("deleteos")
 
-cmd = "sudo docker pull {}".format(x)
+cmd = "sudo docker rm  -f $(kubectl delete --all pods)"
 output = subprocess.getoutput(cmd)
 
 print(output)

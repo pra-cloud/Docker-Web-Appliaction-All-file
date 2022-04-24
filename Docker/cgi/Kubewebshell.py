@@ -12,7 +12,7 @@ myx = mydata.getvalue("x")
 #myy = mydata.getvalue("y")
 
 
-output = subprocess.getoutput("sudo " + myx)
+output = subprocess.getoutput(myx)
 print(output)
 #outputy = subprocess.getoutput("sudo " + imyy)
 #print(outputy)
